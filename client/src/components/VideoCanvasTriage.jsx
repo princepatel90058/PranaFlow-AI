@@ -229,7 +229,7 @@ export default function VideoCanvasTriage({ sessionId, onVitalsData, onError }) 
     function connectWS() {
       const proto = location .protocol === 'https:' ? 'wss' : 'ws';
       const host = import.meta.env.DEV ? 'localhost:8080' : location.host;
-      const ws = new WebSocket(`${proto}://${host}/api/v1/stream-vitals?sessionId=${encoderURIComponent(sessionId || 'default')}`);
+      const ws = new WebSocket(`${proto}://${host}/api/v1/stream-vitals?sessionId=${encodeURIComponent(sessionId || 'default')}`);
 
       wsRef.current = ws;
 
